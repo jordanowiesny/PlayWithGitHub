@@ -121,6 +121,7 @@ namespace TEstApp
                 count -= choice(n, l);
                 Console.WriteLine("COUNT + " + count);
             }
+            Console.WriteLine("Exiting...");
         }
     }
 }
