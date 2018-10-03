@@ -110,7 +110,7 @@ namespace TEstApp
                 l.Add("*");
             }
             Random r = new Random();
-            Console.WriteLine("FUDKFslFSKLFJKSDLFKLSDFKLSKLDJ");
+            Console.WriteLine("IM IN MASTER");
             for (int i = n.Count - 1; i > 0; i--)
             {
                 int j = r.Next(0, i);
