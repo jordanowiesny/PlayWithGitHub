@@ -50,23 +50,18 @@ namespace TEstApp
 
         static int MATCH(int[] choice, List<string> l, List<int> n)
         {
-            for (int i = 0; i < n.Count; i++)
-            {
-                if (n[i] == choice[0] && l[i] == "*")
-                    l[i] = choice[0].ToString();
-                else
-                    return 0;
-            }
+            int temp = 0;
+            temp = (l[choice[0]] == "*") ? temp=1 : temp;
+            l[choice[0]] = n[choice[0]].ToString();
+            l[choice[1]] = n[choice[1]].ToString();
             Print(n, l);
-            return 1;
+            return temp;
         }
 
         static int choice(List<int> n, List<string> l)
         {
             int[] choice = new int[] { 0, 0 };
             List<char> c1 = new List<char>();
-
-
 
             for (int i = 0; i < 2; i++)
             {
@@ -86,10 +81,10 @@ namespace TEstApp
                 else if (c1[0] == 'd')
                     i1 = 12;
                 i1 += int.Parse(c1[1].ToString()) - 1;
-                choice[i] = n[i1];
+                choice[i] = i1;
             }
 
-            if (choice[0] == choice[1])
+            if (n[choice[0]] == n[choice[1]])
             {
                 Console.WriteLine("SICK");
                 return MATCH(choice, l, n);
@@ -124,6 +119,7 @@ namespace TEstApp
             while (count > 0)
             {
                 count -= choice(n, l);
+                Console.WriteLine("COUNT + " + count);
             }
         }
     }
