@@ -50,46 +50,34 @@ namespace TEstApp
 
         static int MATCH(int[] choice, List<string> l, List<int> n)
         {
-            for (int i = 0; i < n.Count; i++)
+            if (n[choice[0]] == n[choice[1]] && l[choice[0]] == "*" && l[choice[1]] == "*")
             {
-                if (n[i] == choice[0] && l[i] == "*")
-                    l[i] = choice[0].ToString();
-                else
-                    return 0;
+                l[choice[0]] = n[choice[0]].ToString();
+                l[choice[1]] = n[choice[1]].ToString();
+                Print(n, l);
+                return 1;
             }
             Print(n, l);
-            return 1;
+            return 0;
         }
 
         static int choice(List<int> n, List<string> l)
         {
             int[] choice = new int[] { 0, 0 };
             List<char> c1 = new List<char>();
-
-
+            int num = 0;
+            string foo;
 
             for (int i = 0; i < 2; i++)
             {
                 Console.Write("Choice " + i + ": ");
-                var foo = Console.ReadLine();
-
-                c1.Add(' ');
-                c1.Add(' ');
-                c1[0] = foo[0];
-                c1[1] = foo[1];
-
-                int i1 = 0;
-                if (c1[0] == 'b')
-                    i1 = 4;
-                else if (c1[0] == 'c')
-                    i1 = 8;
-                else if (c1[0] == 'd')
-                    i1 = 12;
-                i1 += int.Parse(c1[1].ToString()) - 1;
-                choice[i] = n[i1];
+                foo = Console.ReadLine();
+                num = (int)foo[0];
+                num = (((num - 97) *4) + int.Parse(foo[1].ToString()) - 1);
+                choice[i] = num;
             }
 
-            if (choice[0] == choice[1])
+            if (n[choice[0]] == n[choice[1]])
             {
                 Console.WriteLine("SICK");
                 return MATCH(choice, l, n);
