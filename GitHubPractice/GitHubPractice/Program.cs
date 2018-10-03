@@ -57,14 +57,12 @@ namespace TEstApp
                 Print(n, l);
                 return 1;
             }
-            Print(n, l);
             return 0;
         }
 
         static int choice(List<int> n, List<string> l)
         {
             int[] choice = new int[] { 0, 0 };
-            List<char> c1 = new List<char>();
             int num = 0;
             string foo;
 
@@ -112,6 +110,7 @@ namespace TEstApp
             while (count > 0)
             {
                 count -= choice(n, l);
+                Console.WriteLine("COUTN = " + count);
             }
         }
     }
